@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile App Signup flow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #Form {
+            background-color: darkgray;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+            height: 87%;
+            border-radius: 35px;
+        }
+
+        #Form h2 {
+            color: black;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1e394a;
+            border: 2px solid black;
+        }
+
+        .login {
+            display: block;
+            margin-top: 17px;
+            color: black;
+            text-decoration: none;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #Form {
+                width: 90%; 
+            }
+        }
+
+       #Form1 {
+        background-color: darkgrey;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-left: 4%;
+        width: 80%;
+        max-width: 300px;
+        text-align: center;
+        height: 87%;
+        border-radius: 35px;
+       }
+
+        #Form h2 {
+            color: black;
+        }
+        .signup{
+            display: block;
+            margin-top: 17px;
+            color: black;
+            text-decoration: none;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <form id="Form" onsubmit=" validateSignUpForm(event)">
+        <h2>Sign Up</h2>
+        <p>Please fill this form to create an account</p>
+
+        <label for="Email">Email</label>
+        <input type="text" id="Email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" required>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" required>
+
+        <label for="location">Location</label>
+        <input type="text" id="location">
+
+        <!-- Button -->
+        <button type="submit">Sign Up</button>
+
+        <a href="#" class="login">Already have an account? Login</a>
+    </form>
+    
+    <script>
+        function  validateSignUpForm(event) {
+            var email = document.getElementById('Email').value;
+            var pswd = document.getElementById('password').value;
+            var cpswd = document.getElementById('confirmPassword').value;
+            var location = document.getElementById('location').value;
+
+
+            if (email.trim() === '' || pswd.trim() === '' || cpswd.trim() === '' || location.trim() === '') {
+                alert('Please fill in all fields');
+                event.preventDefault(); 
+            } else if (pswd !== cpswd) {
+                alert('Password do not match');
+                event.preventDefault(); 
+            } else {
+                alert('Account Create Successfully');
+            }
+        }
+    </script>
+
+
+<!--- Fill all the required field. -->
+<!--- Password Hint: Write 123 in both password and Confirm Password option. and whatever you want to enter the password but it should be same in 
+both required field password and confirm password --->
+
+
+<form id="Form1" onsubmit="validateLoginForm(event)">
+    <h2>Login</h2>
+    <p>Please enter username & password</p>
+
+    <label for="Username">username</label>
+    <input type="text" id="loginUsername" required>
+
+    <label for="loginpassword">Password</label>
+    <input type="password" id="loginpassword" required>
+
+    <label for="loginconfirmPassword">Confirm Password</label>
+    <input type="password" id="loginconfirmPassword" required>
+
+    <button type="submit">Login</button>
+
+    <a href="#" class="signup">You don't have an account signup</a>
+</form>
+
+<script>
+    function  validateLoginForm(event) {
+        var uname = document.getElementById('loginUsername').value;
+        var pswd = document.getElementById('loginpassword').value;
+        var cpswd = document.getElementById('loginconfirmPassword').value;
+        //var location = document.getElementById('location').value;
+
+         if (pswd !== cpswd) {
+            alert('Invalid Login');
+            event.preventDefault(); 
+        } else {
+            alert('Login Successfully');
+        }
+    }
+</script>
+
+
+</body>
+</html>
